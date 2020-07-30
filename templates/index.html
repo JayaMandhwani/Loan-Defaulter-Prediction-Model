@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html >
+<body bgcolor=#d4a3ae>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+ <div class="login">
+ <center>
+
+	<h1>Loan Defaulter Prediction</h1><br><br>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<b> 
+        	<table>
+            	<tr>
+                	<td>Term :</td>
+                	<td><input type="text" name="Term" placeholder="Term" required="required" /></td>
+                </tr>
+                <tr>
+                	<td>UrbanRural :</td>
+                	<td><input type="text" name="UrbanRural" placeholder="UrbanRural" required="required" /></td>
+                </tr>
+                <tr>
+                	<td>DisbursementGross :</td>
+                	<td><input type="text" name="DisbursementGross" placeholder="DisbursementGross" required="required" /></td>
+                </tr>
+                <tr>
+                	<td>ChgOffPrinGr :</td>
+                	<td> <input type="text" name="ChgOffPrinGr" placeholder="ChgOffPrinGr" required="required" /></td>
+                </tr>
+                <tr>
+                	<td>GrAppv :</td>
+                	<td><input type="text" name="GrAppv" placeholder="GrAppv" required="required" /></td>
+                </tr>
+                <tr>
+                	<td>SBA_Appv :</td>
+                	<td><input type="text" name="SBA_Appv" placeholder="SBA_Appv" required="required" /></td>
+                </tr>
+                <tr>
+                	<td>FranchiseCode :</td>
+                	<td><input type="text" name="FranchiseCode" placeholder="FranchiseCode" required="required" /></td>
+                </tr>
+            
+          </table>
+        
+         
+             <br><button type="submit" class="btn btn-primary btn-block btn-large" style="height:50px;width:100px"><b>Predict</b></button>
+         
+        </b>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
